@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2011 Abelardo Lopez Lagunas
- * 
+ *
  * File name: FileIO.c
  *
  * Author:  Abelardo Lopez Lagunas
@@ -29,9 +29,9 @@
  *
  * $Id$
  */
-
-/************************************************************** 
- *             Declare the function prototypes                * 
+// hola buenas
+/**************************************************************
+ *             Declare the function prototypes                *
  **************************************************************/
 
 int  GetInt (FILE *fp);
