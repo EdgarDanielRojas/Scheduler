@@ -27,11 +27,32 @@
  *
  * $Id$
  */
-
+#include <stdio.h>
 #include <glib.h>				/*Used so we can use the GList double linked list*/
 #include "Process.h"
 
+void PrintAverageWaitTime(GList * process_list){
+  GList *l;
+  int sum=0,number=0;
+  for(l=process_list;l!=NULL;l=l->next){
+    Process node = l->data;
+    number++;
+    sum += node->process_lastruntime - node->process_arrival - node->process_runtime;
+  }
+  float avg = (float)sum/number;
+  printf("Average wait time for FCFS Algorithm : %f\n",avg);
+}
+
 void FirstCome(GList * process_list){
   GList * fc = CopyList(process_list);
-  PrintProcessList(fc);
+  Process running;
+  int time=0;
+  GList *l;
+  for(l=fc;l!=NULL;l=l->next){
+    running = l->data;
+    running->process_lastruntime = time;
+    time +=running->process_burst;
+  }
+  PrintAverageWaitTime(fc);
+  //PrintProcessList(fc);
 }
