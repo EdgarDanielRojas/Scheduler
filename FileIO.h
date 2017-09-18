@@ -28,8 +28,6 @@
  *          integer value skiping over non-numeric data.
  *
  * $Id$
- */
-// hola buenas
 /**************************************************************
  *             Declare the function prototypes                *
  **************************************************************/

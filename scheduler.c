@@ -50,7 +50,8 @@
 #include <stdio.h>                                /* Used for fprintf */
 #include <string.h>                                /* Used for strcmp */
 #include <assert.h>                      /* Used for the assert macro */
-#include "FileIO.h"    /* Definition of file access support functions */
+#include "FileIO.h"         /* Definition of file access support functions */
+#include "Process.h"        /* Used for handling of processes*/
 #include "Dispatcher.h"/* Implementation of the dispatcher algorithms */
 
 /***********************************************************************
@@ -105,14 +106,14 @@ int main (int argc, const char * argv[]) {
                                                        parameters[1],
                                                        parameters[2],
                                                        parameters[3],
-                                                       NULL);
+                                                       1);
                     }
                 }
             }
         }
 
         /* Start by sorting the processes by arrival time */
-        processList_p = SortProcessList(processList_p, ARRIVALTIME);
+        processList_p = SortProcessList(processList_p);
 
 #ifdef DEBUG
         /* Now print each element in the list */
@@ -123,7 +124,7 @@ int main (int argc, const char * argv[]) {
          * Apply all the scheduling algorithms and print the results
          */
         FirstCome (processList_p);
-
+/*
         NonPreemptive(processList_p, PRIORITY);
 
         NonPreemptive(processList_p, CPUBURST);
@@ -135,9 +136,9 @@ int main (int argc, const char * argv[]) {
         RoundRobin(processList_p, quantum);
 
         /* Deallocate the memory assigned to the list */
-        DestroyList(processList_p);
+      //  DestroyList(processList_p);
 
-        printf("Program terminated correclty\n");
+        printf("Program terminated correctly\n");
         return (EXIT_SUCCESS);
     }
 }

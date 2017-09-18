@@ -25,5 +25,25 @@
  *
  * $Id$
  */
+ typedef struct process_p * Process;
 
-#include <glib.h>				/*Used so we can use the GList double linked list
+ struct process_p{
+   int process_id;
+   int process_arrival;
+   int process_burst;
+   int process_priority;
+   int process_runtime;
+   int process_lastruntime;
+ };
+ 
+GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int priority,int algo);
+
+gint sortFunction(gconstpointer a,gconstpointer b);
+
+GList * SortProcessList(GList * process_list);
+
+void PrintProcessList(GList * process_list);
+
+Process copyFunction(gconstpointer src,gpointer data);
+
+GList * CopyList(GList * process_list);
