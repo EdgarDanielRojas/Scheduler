@@ -35,7 +35,7 @@
    int process_runtime;
    int process_lastruntime;
  };
- 
+
 GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int priority,int algo);
 
 gint sortFunction(gconstpointer a,gconstpointer b);
@@ -47,3 +47,7 @@ void PrintProcessList(GList * process_list);
 Process copyFunction(gconstpointer src,gpointer data);
 
 GList * CopyList(GList * process_list);
+
+void freeNode(gpointer node);
+
+void DestroyList(GList * process_list);

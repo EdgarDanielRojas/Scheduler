@@ -51,14 +51,14 @@ GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int pri
     return g_list_insert(process_list,node,-1);
 }
 
-gint sortFunction(gconstpointer a,gconstpointer b){
+gint sortFunction(gpointer a,gpointer b){
   Process aa = a;
   Process bb = b;
   return aa->process_id - bb->process_id;
 }
 
 GList * SortProcessList(GList * process_list){
-  return g_list_sort(process_list,sortFunction);
+  return g_list_sort(process_list,(GCompareFunc)sortFunction);
 }
 
 void PrintProcessList(GList * process_list){
@@ -69,7 +69,7 @@ void PrintProcessList(GList * process_list){
   }
 }
 
-Process copyFunction(gconstpointer src,gpointer data){
+Process copyFunction(gpointer src,gpointer data){
   Process original = src;
   Process copy = (Process)malloc(sizeof(struct process_p));
   copy->process_id = original->process_id;
@@ -83,4 +83,12 @@ Process copyFunction(gconstpointer src,gpointer data){
 
 GList * CopyList(GList * process_list){
     return g_list_copy_deep(process_list,(GCopyFunc)copyFunction,NULL);
+}
+
+void freeNode(gpointer node){
+  free(node);
+}
+
+void DestroyList(GList * process_list){
+  g_list_free_full(process_list, freeNode);
 }

@@ -136,7 +136,7 @@ int main (int argc, const char * argv[]) {
         RoundRobin(processList_p, quantum);
 
         /* Deallocate the memory assigned to the list */
-      //  DestroyList(processList_p);
+        DestroyList(processList_p);
 
         printf("Program terminated correctly\n");
         return (EXIT_SUCCESS);
