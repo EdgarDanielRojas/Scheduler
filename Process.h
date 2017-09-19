@@ -36,6 +36,8 @@
    int process_lastruntime;
  };
 
+enum sort_type{ ID, ARRIVAL, PRIORITY , CPUBURST};
+
 GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int priority,int algo);
 
 gint sortFunction(gconstpointer a,gconstpointer b);

@@ -39,6 +39,8 @@ struct process_p{
   int process_lastruntime;
 };
 
+enum sort_type{ ID , ARRIVAL , PRIORITY , CPUBURST};
+
 GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int priority,int algo){
     Process node = (Process)malloc(sizeof(struct process_p));
     node->process_id = id;
@@ -51,14 +53,39 @@ GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int pri
     return g_list_insert(process_list,node,-1);
 }
 
-gint sortFunction(gpointer a,gpointer b){
+gint sortFunctionID(gpointer a,gpointer b){
   Process aa = a;
   Process bb = b;
   return aa->process_id - bb->process_id;
 }
 
-GList * SortProcessList(GList * process_list){
-  return g_list_sort(process_list,(GCompareFunc)sortFunction);
+gint sortFunctionArrival(gpointer a,gpointer b){
+  Process aa = a;
+  Process bb = b;
+  return aa->process_arrival - bb->process_arrival;
+}
+
+gint sortFunctionPriority(gpointer a,gpointer b){
+  Process aa = a;
+  Process bb = b;
+  return aa->process_priority - bb->process_priority;
+}
+
+gint sortFunctionCpuBurst(gpointer a,gpointer b){
+  Process aa = a;
+  Process bb = b;
+  return aa->process_burst - bb->process_burst;
+}
+
+GList * SortProcessList(GList * process_list,int sort){
+  if(sort == ID)
+    return g_list_sort(process_list,(GCompareFunc)sortFunctionID);
+  if(sort==ARRIVAL)
+    return g_list_sort(process_list,(GCompareFunc)sortFunctionArrival);
+  if(sort == PRIORITY)
+      return g_list_sort(process_list,(GCompareFunc)sortFunctionPriority);
+  if(sort==CPUBURST)
+      return g_list_sort(process_list,(GCompareFunc)sortFunctionCpuBurst);
 }
 
 void PrintProcessList(GList * process_list){
