@@ -42,7 +42,7 @@ GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int pri
 
 gint sortFunction(gconstpointer a,gconstpointer b);
 
-GList * SortProcessList(GList * process_list);
+GList * SortProcessList(GList * process_list,int sort);
 
 void PrintProcessList(GList * process_list);
 

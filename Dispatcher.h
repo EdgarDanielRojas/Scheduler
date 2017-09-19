@@ -29,3 +29,5 @@
  */
 
 void FirstCome(GList * process_list);
+
+void NonPreemptive(GList * process_list,int type);

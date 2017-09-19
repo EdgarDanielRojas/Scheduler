@@ -54,5 +54,41 @@ void FirstCome(GList * process_list){
     time +=running->process_burst;
   }
   PrintAverageWaitTime(fc);
-  //PrintProcessList(fc);
+  DestroyList(fc);
+}
+
+gint funcArrival(gpointer a,int * b){
+  Process aa = a;
+  return aa->process_arrival - *b;
+}
+
+void NonPreemptive(GList * process_list, int type){
+  GList * np = CopyList(process_list);
+  GList * runningList = NULL;
+  GList * result = NULL;
+  Process running;
+  int time=0;
+  running = np->data;
+  //runningList = g_list_insert(runningList,running,-1);
+  do{
+    result = g_list_find_custom(np,&time,(GCompareFunc)funcArrival);
+    if(result!=NULL){
+      runningList = g_list_insert(runningList,result->data,-1);
+      if(type == PRIORITY)
+        runningList = SortProcessList(runningList,PRIORITY);
+      else if(type == CPUBURST)
+        runningList = SortProcessList(runningList,CPUBURST);
+    }
+    if(running->process_burst == time - running->process_lastruntime){
+      runningList = g_list_remove(runningList,running);
+      if(runningList!=NULL){
+        running = runningList->data;
+        running->process_lastruntime = time;
+      }
+    }
+    time++;
+  }while(runningList!=NULL);
+  PrintAverageWaitTime(np);
+  DestroyList(np);
+  DestroyList(runningList);
 }

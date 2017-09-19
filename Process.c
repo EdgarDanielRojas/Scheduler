@@ -92,7 +92,7 @@ void PrintProcessList(GList * process_list){
   GList *l;
   for(l=process_list;l!=NULL;l=l->next){
     Process node = l->data;
-    printf("%d\n", node->process_id);
+    printf("%d %d %d %d\n", node->process_id,node->process_arrival,node->process_burst,node->process_priority);
   }
 }
 

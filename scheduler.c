@@ -113,7 +113,7 @@ int main (int argc, const char * argv[]) {
         }
 
         /* Start by sorting the processes by arrival time */
-        processList_p = SortProcessList(processList_p);
+        processList_p = SortProcessList(processList_p,ARRIVAL);
 
 #ifdef DEBUG
         /* Now print each element in the list */
@@ -124,11 +124,11 @@ int main (int argc, const char * argv[]) {
          * Apply all the scheduling algorithms and print the results
          */
         FirstCome (processList_p);
-/*
+
         NonPreemptive(processList_p, PRIORITY);
 
         NonPreemptive(processList_p, CPUBURST);
-
+/*
         Preemptive(processList_p, PRIORITY);
 
         Preemptive(processList_p, CPUBURST);
