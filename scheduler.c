@@ -132,7 +132,7 @@ int main (int argc, const char * argv[]) {
         Preemptive(processList_p, PRIORITY);
 
         Preemptive(processList_p, CPUBURST);
-/*
+
         RoundRobin(processList_p, quantum);
 
         /* Deallocate the memory assigned to the list */

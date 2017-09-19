@@ -155,3 +155,51 @@ void Preemptive(GList * process_list, int type){
   DestroyList(p);
   DestroyList(runningList);
 }
+
+void RoundRobin(GList * process_list, int quantum){
+  GList * rr = CopyList(process_list);
+  GList * runningList = NULL;
+  GList * result = NULL;
+  Process running;
+  int time=0;
+  int timeRunning=0;
+  running = rr->data;
+  //runningList = g_list_insert(runningList,running,-1);
+  do{
+    //printf("Time %d\n",time);
+    if(running->process_remainingcycles ==  0){
+      //printf("Removal of process at time %d\n",time);
+      //PrintProcessList(runningList);
+      runningList = g_list_remove(runningList,running);
+      if(runningList!=NULL){
+        running = runningList->data;
+        running->process_lastruntime = time;
+        timeRunning=0;
+        //printf("Current process running %d\n",running->process_id);
+      }
+    }
+    if(timeRunning == quantum){
+      runningList = g_list_remove(runningList,running);
+      runningList = g_list_insert(runningList,running,-1);
+      if(runningList!=NULL){
+        running = runningList->data;
+        running->process_lastruntime = time;
+        timeRunning=0;
+        //printf("Current process running %d\n",running->process_id);
+      }
+    }
+    result = g_list_find_custom(rr,&time,(GCompareFunc)funcArrival);
+    if(result!=NULL){
+      //printf("New process introduced at time %d\n",time);
+      runningList = g_list_insert(runningList,result->data,-1);
+      //PrintProcessList(runningList);
+    }
+    time++;
+    timeRunning++;
+    running->process_remainingcycles = running->process_remainingcycles -1;
+  }while(runningList!=NULL);
+  PrintProcessList(rr);
+  PrintAverageWaitTime(rr,"Round Robin");
+  DestroyList(rr);
+  DestroyList(runningList);
+}
