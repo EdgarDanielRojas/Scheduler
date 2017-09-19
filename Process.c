@@ -37,6 +37,7 @@ struct process_p{
   int process_priority;
   int process_runtime;
   int process_lastruntime;
+  int process_remainingcycles;
 };
 
 enum sort_type{ ID , ARRIVAL , PRIORITY , CPUBURST};
@@ -49,7 +50,7 @@ GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int pri
     node->process_priority = priority;
     node->process_runtime = 0;
     node->process_lastruntime = 0;
-
+    node->process_remainingcycles = burst;
     return g_list_insert(process_list,node,-1);
 }
 
@@ -68,13 +69,20 @@ gint sortFunctionArrival(gpointer a,gpointer b){
 gint sortFunctionPriority(gpointer a,gpointer b){
   Process aa = a;
   Process bb = b;
-  return aa->process_priority - bb->process_priority;
+  int compare= aa->process_priority - bb->process_priority;
+  if(compare==0)
+    compare=sortFunctionID(a,b);
+  return compare;
 }
 
 gint sortFunctionCpuBurst(gpointer a,gpointer b){
   Process aa = a;
   Process bb = b;
-  return aa->process_burst - bb->process_burst;
+  int compare= aa->process_remainingcycles - bb->process_remainingcycles;
+  if(compare==0)
+    compare=sortFunctionID(a,b);
+  return compare;
+  return compare;
 }
 
 GList * SortProcessList(GList * process_list,int sort){
@@ -92,7 +100,7 @@ void PrintProcessList(GList * process_list){
   GList *l;
   for(l=process_list;l!=NULL;l=l->next){
     Process node = l->data;
-    printf("%d %d %d %d\n", node->process_id,node->process_arrival,node->process_burst,node->process_priority);
+    printf("%d %d %d %d %d %d %d\n", node->process_id,node->process_arrival,node->process_burst,node->process_priority,node->process_runtime,node->process_lastruntime,node->process_remainingcycles);
   }
 }
 
@@ -105,6 +113,7 @@ Process copyFunction(gpointer src,gpointer data){
   copy->process_priority = original->process_priority;
   copy->process_runtime = original->process_runtime;
   copy->process_lastruntime = original->process_lastruntime;
+  copy->process_remainingcycles = original->process_remainingcycles;
   return copy;
 }
 

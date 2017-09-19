@@ -34,6 +34,7 @@
    int process_priority;
    int process_runtime;
    int process_lastruntime;
+   int process_remainingcycles;
  };
 
 enum sort_type{ ID, ARRIVAL, PRIORITY , CPUBURST};

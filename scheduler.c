@@ -115,10 +115,10 @@ int main (int argc, const char * argv[]) {
         /* Start by sorting the processes by arrival time */
         processList_p = SortProcessList(processList_p,ARRIVAL);
 
-#ifdef DEBUG
+
         /* Now print each element in the list */
         PrintProcessList(processList_p);
-#endif
+
 
         /*
          * Apply all the scheduling algorithms and print the results
@@ -128,11 +128,11 @@ int main (int argc, const char * argv[]) {
         NonPreemptive(processList_p, PRIORITY);
 
         NonPreemptive(processList_p, CPUBURST);
-/*
+
         Preemptive(processList_p, PRIORITY);
 
         Preemptive(processList_p, CPUBURST);
-
+/*
         RoundRobin(processList_p, quantum);
 
         /* Deallocate the memory assigned to the list */
