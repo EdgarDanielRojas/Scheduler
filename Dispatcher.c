@@ -179,6 +179,7 @@ void RoundRobin(GList * process_list, int quantum){
       }
     }
     if(timeRunning == quantum){
+      running->process_runtime = running->process_runtime + timeRunning;
       runningList = g_list_remove(runningList,running);
       runningList = g_list_insert(runningList,running,-1);
       if(runningList!=NULL){
@@ -198,7 +199,7 @@ void RoundRobin(GList * process_list, int quantum){
     timeRunning++;
     running->process_remainingcycles = running->process_remainingcycles -1;
   }while(runningList!=NULL);
-  PrintProcessList(rr);
+  //PrintProcessList(rr);
   PrintAverageWaitTime(rr,"Round Robin");
   DestroyList(rr);
   DestroyList(runningList);
