@@ -31,7 +31,7 @@
 #include <glib.h>				/*Used so we can use the GList double linked list*/
 #include "Process.h"
 
-void PrintAverageWaitTime(GList * process_list){
+void PrintAverageWaitTime(GList * process_list, char *tipo){
   GList *l;
   int sum=0,number=0;
   for(l=process_list;l!=NULL;l=l->next){
@@ -40,7 +40,7 @@ void PrintAverageWaitTime(GList * process_list){
     sum += node->process_lastruntime - node->process_arrival - node->process_runtime;
   }
   float avg = (float)sum/number;
-  printf("Average wait time for FCFS Algorithm : %f\n",avg);
+  printf("Average wait time for %s Algorithm : %f\n",tipo,avg);
 }
 
 void FirstCome(GList * process_list){
@@ -53,7 +53,7 @@ void FirstCome(GList * process_list){
     running->process_lastruntime = time;
     time +=running->process_burst;
   }
-  PrintAverageWaitTime(fc);
+  PrintAverageWaitTime(fc,"FCFS");
   DestroyList(fc);
 }
 
@@ -68,6 +68,7 @@ void NonPreemptive(GList * process_list, int type){
   GList * result = NULL;
   Process running;
   int time=0;
+  char *string;
   running = np->data;
   //runningList = g_list_insert(runningList,running,-1);
   do{
@@ -88,7 +89,11 @@ void NonPreemptive(GList * process_list, int type){
     }
     time++;
   }while(runningList!=NULL);
-  PrintAverageWaitTime(np);
+  if(type == PRIORITY)
+    string = "NonPreemptive Priority";
+  else
+    string = "NonPreemptive SJF";
+  PrintAverageWaitTime(np,string);
   DestroyList(np);
   DestroyList(runningList);
 }
@@ -100,6 +105,7 @@ void Preemptive(GList * process_list, int type){
   Process running;
   int time=0;
   int timeRunning=0;
+  char *string;
   running = p->data;
   //runningList = g_list_insert(runningList,running,-1);
   do{
@@ -141,7 +147,11 @@ void Preemptive(GList * process_list, int type){
     running->process_remainingcycles = running->process_remainingcycles -1;
   }while(runningList!=NULL);
   //PrintProcessList(p);
-  PrintAverageWaitTime(p);
+  if(type == PRIORITY)
+    string = "Preemptive Priority";
+  else
+    string = "Preemptive SJF";
+  PrintAverageWaitTime(p,string);
   DestroyList(p);
   DestroyList(runningList);
 }
