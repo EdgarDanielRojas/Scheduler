@@ -103,34 +103,36 @@ void Preemptive(GList * process_list, int type){
   running = p->data;
   //runningList = g_list_insert(runningList,running,-1);
   do{
-    printf("Time %d\n",time);
+    //printf("Time %d\n",time);
     if(running->process_remainingcycles ==  0){
-      printf("Removal of process at time %d\n",time);
-      PrintProcessList(runningList);
+      //printf("Removal of process at time %d\n",time);
+      //PrintProcessList(runningList);
       runningList = g_list_remove(runningList,running);
       if(runningList!=NULL){
         running = runningList->data;
         running->process_lastruntime = time;
-        printf("Current process running %d\n",running->process_id);
+        timeRunning=0;
+        //printf("Current process running %d\n",running->process_id);
       }
     }
     result = g_list_find_custom(p,&time,(GCompareFunc)funcArrival);
     if(result!=NULL){
-      printf("New process introduced at time %d\n",time);
+      //printf("New process introduced at time %d\n",time);
       runningList = g_list_insert(runningList,result->data,-1);
       if(type == PRIORITY)
         runningList = SortProcessList(runningList,PRIORITY);
       else if(type == CPUBURST)
         runningList = SortProcessList(runningList,CPUBURST);
 
-      PrintProcessList(runningList);
+      //PrintProcessList(runningList);
       if(running != runningList->data){
         int processtime = running->process_runtime;
         running->process_runtime = processtime + timeRunning;
-        printf("Change of process at time %d\n",time);
+        //printf("Change of process at time %d\n",time);
         running = runningList->data;
         running->process_lastruntime = time;
-        printf("Current process running %d\n",running->process_id);
+        timeRunning=0;
+        //printf("Current process running %d\n",running->process_id);
       }
     }
 
@@ -138,6 +140,7 @@ void Preemptive(GList * process_list, int type){
     timeRunning++;
     running->process_remainingcycles = running->process_remainingcycles -1;
   }while(runningList!=NULL);
+  //PrintProcessList(p);
   PrintAverageWaitTime(p);
   DestroyList(p);
   DestroyList(runningList);
