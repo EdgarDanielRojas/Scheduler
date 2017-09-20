@@ -74,7 +74,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="Process_8h__dep__incl.png" border="0" usemap="#Process_8hdep" alt=""/></div>
 <map name="Process_8hdep" id="Process_8hdep">
 <area shape="rect" id="node2" href="Dispatcher_8c.html" title="Dispatcher.c" alt="" coords="5,80,101,107"/>
-<area shape="rect" id="node3" href="scheduler_8c.html" title="scheduler.c" alt="" coords="126,80,215,107"/>
+<area shape="rect" id="node3" href="Process_8c.html" title="Process.c" alt="" coords="126,80,207,107"/>
+<area shape="rect" id="node4" href="scheduler_8c.html" title="scheduler.c" alt="" coords="231,80,321,107"/>
 </map>
 </div>
 </div>
@@ -88,21 +89,15 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a2cd5bf0ab2a377eb8f8d61ff45a34367"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structprocess__p.html">process_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a></td></tr>
+<tr class="memdesc:a2cd5bf0ab2a377eb8f8d61ff45a34367"><td class="mdescLeft">&#160;</td><td class="mdescRight">We make a typedef to facilitate declaration of <a class="el" href="structprocess__p.html">process_p</a> structures in the future.  <a href="#a2cd5bf0ab2a377eb8f8d61ff45a34367">More...</a><br /></td></tr>
 <tr class="separator:a2cd5bf0ab2a377eb8f8d61ff45a34367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ab20146ea09fa4cd6779b4190cad8e5ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5ce">sort_type</a> { <br />
-&#160;&#160;<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68">ID</a>, 
-<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb">ARRIVAL</a>, 
-<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51">PRIORITY</a>, 
-<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52">CPUBURST</a>, 
-<br />
-&#160;&#160;<a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68">ID</a>, 
+<tr class="memitem:ab20146ea09fa4cd6779b4190cad8e5ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5ce">sort_type</a> { <a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68">ID</a>, 
 <a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb">ARRIVAL</a>, 
 <a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51">PRIORITY</a>, 
 <a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52">CPUBURST</a>
-<br />
  }</td></tr>
 <tr class="separator:ab20146ea09fa4cd6779b4190cad8e5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -111,16 +106,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a8ef269d261a5a05b20817e8c2199bf47"><td class="memItemLeft" align="right" valign="top">GList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#a8ef269d261a5a05b20817e8c2199bf47">CreateProcess</a> (GList *process_list, int id, int arrival, int burst, int priority, int algo)</td></tr>
 <tr class="memdesc:a8ef269d261a5a05b20817e8c2199bf47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a process and adds it to the process list.  <a href="#a8ef269d261a5a05b20817e8c2199bf47">More...</a><br /></td></tr>
 <tr class="separator:a8ef269d261a5a05b20817e8c2199bf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a126e78b868ea574124b425b3446aef24"><td class="memItemLeft" align="right" valign="top">gint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#a126e78b868ea574124b425b3446aef24">sortFunction</a> (gconstpointer a, gconstpointer b)</td></tr>
-<tr class="separator:a126e78b868ea574124b425b3446aef24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e3d74131348ddad1e6c94aa14c9f538"><td class="memItemLeft" align="right" valign="top">GList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#a3e3d74131348ddad1e6c94aa14c9f538">SortProcessList</a> (GList *process_list, int sort)</td></tr>
 <tr class="memdesc:a3e3d74131348ddad1e6c94aa14c9f538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a process list.  <a href="#a3e3d74131348ddad1e6c94aa14c9f538">More...</a><br /></td></tr>
 <tr class="separator:a3e3d74131348ddad1e6c94aa14c9f538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb45538154ba4a6018224347230e1bcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#afb45538154ba4a6018224347230e1bcc">PrintProcessList</a> (GList *process_list)</td></tr>
 <tr class="memdesc:afb45538154ba4a6018224347230e1bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a process list.  <a href="#afb45538154ba4a6018224347230e1bcc">More...</a><br /></td></tr>
 <tr class="separator:afb45538154ba4a6018224347230e1bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef0b4c73b73c34d276778d57475dba6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#aef0b4c73b73c34d276778d57475dba6a">copyFunction</a> (gconstpointer src, gpointer data)</td></tr>
-<tr class="separator:aef0b4c73b73c34d276778d57475dba6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87ca937324b42cc09757825d6df7f67"><td class="memItemLeft" align="right" valign="top">GList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8h.html#af87ca937324b42cc09757825d6df7f67">CopyList</a> (GList *process_list)</td></tr>
 <tr class="memdesc:af87ca937324b42cc09757825d6df7f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a process list.  <a href="#af87ca937324b42cc09757825d6df7f67">More...</a><br /></td></tr>
 <tr class="separator:af87ca937324b42cc09757825d6df7f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,10 +130,12 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structprocess__p.html">process_p</a>* <a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a></td>
+          <td class="memname">typedef struct <a class="el" href="structprocess__p.html">process_p</a>* <a class="el" href="Process_8h.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>We make a typedef to facilitate declaration of <a class="el" href="structprocess__p.html">process_p</a> structures in the future. </p>
 
 </div>
 </div>
@@ -154,10 +147,11 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5ce">sort_type</a></td>
+          <td class="memname">enum <a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5ce">sort_type</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>We declare an enum to facilitate the use of sort types and algorithm types we may use </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68"></a>ID&#160;</td><td class="fielddoc"><p>Constant for ID. </p>
 </td></tr>
@@ -167,43 +161,11 @@ Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52"></a>CPUBURST&#160;</td><td class="fielddoc"><p>Constant for Cpu burst. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68"></a>ID&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb"></a>ARRIVAL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51"></a>PRIORITY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52"></a>CPUBURST&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aef0b4c73b73c34d276778d57475dba6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef0b4c73b73c34d276778d57475dba6a">&#9670;&nbsp;</a></span>copyFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a> copyFunction </td>
-          <td>(</td>
-          <td class="paramtype">gconstpointer&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">gpointer&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="af87ca937324b42cc09757825d6df7f67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af87ca937324b42cc09757825d6df7f67">&#9670;&nbsp;</a></span>CopyList()</h2>
 
@@ -375,34 +337,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <p>This function receives the process list head and using another GList pointer it goes one by one and extracts the data (a process) from the pointer and prints out the process information. This inludes process_id , process_arrival , process_burst, process_priority, process_runtime, process_lastruntime and process_remainingcycles. It stops once it gets to the NULL GList node. </p>
-
-</div>
-</div>
-<a id="a126e78b868ea574124b425b3446aef24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a126e78b868ea574124b425b3446aef24">&#9670;&nbsp;</a></span>sortFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gint sortFunction </td>
-          <td>(</td>
-          <td class="paramtype">gconstpointer&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">gconstpointer&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

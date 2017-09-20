@@ -44,7 +44,7 @@
  */
 
  /*!
-  * \author Edgar Daniel Rojas Vazquez
+  * \author Edgar Daniel Rojas Vazquez & Abelardo Lopez Lagunas
   * \version 1.0
   * \date 19/09/2017
   * \copyright GNU Public License
@@ -53,10 +53,10 @@
   * This code was made for the class TC2008 Operating Systems.
   * The main focus of this code is to take a file as an input with various processes
   * on it and apply the 6 process scheduling algorithms seen in class. Afterwards
-  * it shall print out the average wait time for each algorithm applied.
+  * it shall print out the average wait time for each algorithm applied. The only
+  * code reutilized was that which was provided by the Profesor Abelardo Lopez Lagunas.
   */
 
-// TODO Implement Dispatcher Fileio and Process functions
 
 #include <glib.h>                         /* Used for data structure manipulation*/
 #include <stdlib.h>                     /* Used for malloc definition */

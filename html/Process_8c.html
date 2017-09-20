@@ -60,9 +60,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Process.c File Reference</div>  </div>
@@ -71,39 +68,16 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;glib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Process_8h_source.html">Process.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Process.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="Process_8c__incl.png" border="0" usemap="#Process_8c" alt=""/></div>
+<map name="Process_8c" id="Process_8c">
+<area shape="rect" id="node5" href="Process_8h.html" title="Process.h" alt="" coords="257,80,338,107"/>
+</map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structprocess__p.html">process_p</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a2cd5bf0ab2a377eb8f8d61ff45a34367"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structprocess__p.html">process_p</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a></td></tr>
-<tr class="memdesc:a2cd5bf0ab2a377eb8f8d61ff45a34367"><td class="mdescLeft">&#160;</td><td class="mdescRight">We make a typedef to facilitate declaration of <a class="el" href="structprocess__p.html">process_p</a> structures in the future.  <a href="#a2cd5bf0ab2a377eb8f8d61ff45a34367">More...</a><br /></td></tr>
-<tr class="separator:a2cd5bf0ab2a377eb8f8d61ff45a34367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ab20146ea09fa4cd6779b4190cad8e5ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5ce">sort_type</a> { <br />
-&#160;&#160;<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68">ID</a>, 
-<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb">ARRIVAL</a>, 
-<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51">PRIORITY</a>, 
-<a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52">CPUBURST</a>, 
-<br />
-&#160;&#160;<a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68">ID</a>, 
-<a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb">ARRIVAL</a>, 
-<a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51">PRIORITY</a>, 
-<a class="el" href="Process_8h.html#ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52">CPUBURST</a>
-<br />
- }</td></tr>
-<tr class="separator:ab20146ea09fa4cd6779b4190cad8e5ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8ef269d261a5a05b20817e8c2199bf47"><td class="memItemLeft" align="right" valign="top">GList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#a8ef269d261a5a05b20817e8c2199bf47">CreateProcess</a> (GList *process_list, int id, int arrival, int burst, int priority, int algo)</td></tr>
@@ -127,7 +101,7 @@ Functions</h2></td></tr>
 <tr class="memitem:afb45538154ba4a6018224347230e1bcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#afb45538154ba4a6018224347230e1bcc">PrintProcessList</a> (GList *process_list)</td></tr>
 <tr class="memdesc:afb45538154ba4a6018224347230e1bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a process list.  <a href="#afb45538154ba4a6018224347230e1bcc">More...</a><br /></td></tr>
 <tr class="separator:afb45538154ba4a6018224347230e1bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a7756a071f91c234e44204f3f07d1ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#a5a7756a071f91c234e44204f3f07d1ee">copyFunction</a> (gpointer src, gpointer data)</td></tr>
+<tr class="memitem:a5a7756a071f91c234e44204f3f07d1ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Process_8h.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#a5a7756a071f91c234e44204f3f07d1ee">copyFunction</a> (gpointer src, gpointer data)</td></tr>
 <tr class="memdesc:a5a7756a071f91c234e44204f3f07d1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a process.  <a href="#a5a7756a071f91c234e44204f3f07d1ee">More...</a><br /></td></tr>
 <tr class="separator:a5a7756a071f91c234e44204f3f07d1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87ca937324b42cc09757825d6df7f67"><td class="memItemLeft" align="right" valign="top">GList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Process_8c.html#af87ca937324b42cc09757825d6df7f67">CopyList</a> (GList *process_list)</td></tr>
@@ -140,53 +114,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5d9c86d6ef6c16d26cd8248cd0b2eb12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees memory of a process list.  <a href="#a5d9c86d6ef6c16d26cd8248cd0b2eb12">More...</a><br /></td></tr>
 <tr class="separator:a5d9c86d6ef6c16d26cd8248cd0b2eb12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a2cd5bf0ab2a377eb8f8d61ff45a34367"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cd5bf0ab2a377eb8f8d61ff45a34367">&#9670;&nbsp;</a></span>Process</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="structprocess__p.html">process_p</a>* <a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>We make a typedef to facilitate declaration of <a class="el" href="structprocess__p.html">process_p</a> structures in the future. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="ab20146ea09fa4cd6779b4190cad8e5ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab20146ea09fa4cd6779b4190cad8e5ce">&#9670;&nbsp;</a></span>sort_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="Process_8c.html#ab20146ea09fa4cd6779b4190cad8e5ce">sort_type</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>We declare an enum to facilitate the use of sort types and algorithm types we may use </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68"></a>ID&#160;</td><td class="fielddoc"><p>Constant for ID. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb"></a>ARRIVAL&#160;</td><td class="fielddoc"><p>Constant for Arrival. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51"></a>PRIORITY&#160;</td><td class="fielddoc"><p>Constant for Priority. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52"></a>CPUBURST&#160;</td><td class="fielddoc"><p>Constant for Cpu burst. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea001479a58fb44c39a29b20d565081a68"></a>ID&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5ceae5b44f857c1441223fccbf7fc11c86fb"></a>ARRIVAL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea117d4e929adf16e40bd27b3e7c7cee51"></a>PRIORITY&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab20146ea09fa4cd6779b4190cad8e5cea98aa2891a2612413ce89c98a84143c52"></a>CPUBURST&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a5a7756a071f91c234e44204f3f07d1ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a7756a071f91c234e44204f3f07d1ee">&#9670;&nbsp;</a></span>copyFunction()</h2>
@@ -195,7 +122,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="Process_8c.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a> copyFunction </td>
+          <td class="memname"><a class="el" href="Process_8h.html#a2cd5bf0ab2a377eb8f8d61ff45a34367">Process</a> copyFunction </td>
           <td>(</td>
           <td class="paramtype">gpointer&#160;</td>
           <td class="paramname"><em>src</em>, </td>

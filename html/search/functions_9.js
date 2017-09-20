@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sortfunction',['sortFunction',['../Process_8h.html#a126e78b868ea574124b425b3446aef24',1,'Process.h']]],
   ['sortfunctionarrival',['sortFunctionArrival',['../Process_8c.html#a6f3f64bb7c8ab2b1f017b2607b999155',1,'Process.c']]],
   ['sortfunctioncpuburst',['sortFunctionCpuBurst',['../Process_8c.html#a5570e4134904d2733e91367025124a6f',1,'Process.c']]],
   ['sortfunctionid',['sortFunctionID',['../Process_8c.html#a2ef5e3a26c3701399d2440180f4d957b',1,'Process.c']]],

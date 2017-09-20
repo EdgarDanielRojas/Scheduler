@@ -1,4 +1,5 @@
 <map id="Process.h" name="Process.h">
 <area shape="rect" id="node2" href="$Dispatcher_8c.html" title="Dispatcher.c" alt="" coords="5,80,101,107"/>
-<area shape="rect" id="node3" href="$scheduler_8c.html" title="scheduler.c" alt="" coords="126,80,215,107"/>
+<area shape="rect" id="node3" href="$Process_8c.html" title="Process.c" alt="" coords="126,80,207,107"/>
+<area shape="rect" id="node4" href="$scheduler_8c.html" title="scheduler.c" alt="" coords="231,80,321,107"/>
 </map>
