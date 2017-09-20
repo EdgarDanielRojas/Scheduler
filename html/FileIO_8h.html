@@ -80,8 +80,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad08b0cc5e2b311c811fd3aec3fe8e276"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FileIO_8h.html#ad08b0cc5e2b311c811fd3aec3fe8e276">GetInt</a> (FILE *fp)</td></tr>
+<tr class="memdesc:ad08b0cc5e2b311c811fd3aec3fe8e276"><td class="mdescLeft">&#160;</td><td class="mdescRight">The function will read the input file and return an integer representing the ASCII characters that form a number. It skips over comments, which begin a line with a #, and other ASCI characters that do not represent numbers.  <a href="#ad08b0cc5e2b311c811fd3aec3fe8e276">More...</a><br /></td></tr>
 <tr class="separator:ad08b0cc5e2b311c811fd3aec3fe8e276"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a424cc7614e30986ee33b2867e01bb5e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FileIO_8h.html#a424cc7614e30986ee33b2867e01bb5e2">ErrorMsg</a> (char *function, char *message)</td></tr>
+<tr class="memdesc:a424cc7614e30986ee33b2867e01bb5e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an error message and then gracefully terminate the program. This is the release version of assert.  <a href="#a424cc7614e30986ee33b2867e01bb5e2">More...</a><br /></td></tr>
 <tr class="separator:a424cc7614e30986ee33b2867e01bb5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -111,6 +113,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Prints an error message and then gracefully terminate the program. This is the release version of assert. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String with the error message</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Prints the error in standard output and exits </dd></dl>
+
 </div>
 </div>
 <a id="ad08b0cc5e2b311c811fd3aec3fe8e276"></a>
@@ -128,6 +139,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The function will read the input file and return an integer representing the ASCII characters that form a number. It skips over comments, which begin a line with a #, and other ASCI characters that do not represent numbers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Pointer to the text file to parse</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Integer representing value, only positive values are possible. If the end of file is reached a -1 is returned. </dd></dl>
 
 </div>
 </div>

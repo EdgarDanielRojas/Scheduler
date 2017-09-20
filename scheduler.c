@@ -55,6 +55,7 @@
   * on it and apply the 6 process scheduling algorithms seen in class. Afterwards
   * it shall print out the average wait time for each algorithm applied. The only
   * code reutilized was that which was provided by the Profesor Abelardo Lopez Lagunas.
+  * The files reutilized are scheduler.c, FileIO.h and FileIO.c .
   */
 
 
@@ -65,13 +66,13 @@
 #include <assert.h>                      /* Used for the assert macro */
 #include "FileIO.h"         /* Definition of file access support functions */
 #include "Process.h"        /* Used for handling of processes*/
-#include "Dispatcher.h"/* Implementation of the dispatcher algorithms */
+#include "Dispatcher.h"     /* Implementation of the dispatcher algorithms */
 
 /***********************************************************************
  *                       Global constant values                        *
  **********************************************************************/
-#define NUMPARAMS 2
-#define NUMVAL    4
+#define NUMPARAMS 2 //!< Constant used to define the number of parameters we must receive.
+#define NUMVAL    4 //!< Constant used to define the number of values we shall read from a file.
 
 /***********************************************************************
  *                          Main entry point                           *

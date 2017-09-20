@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2011 Abelardo Lopez Lagunas
- * 
+ *
  * File name: FileIO.c
  *
  * Author:  Abelardo Lopez Lagunas
@@ -35,19 +35,15 @@
 #include <stdio.h>                    /* Used to handle the FILE type */
 #include "FileIO.h"                                /* Function header */
 
-/*
- *
- *  Function: GetInt
- *
- *  Purpose: The function will read the input file and return an integer
+/*!
+ *  \brief   The function will read the input file and return an integer
  *           representing the ASCII characters that form a number. It
  *           skips over comments, which begin a line with a #, and other
  *           ASCI characters that do not represent numbers.
  *
- *  Parameters:
- *            input    Pointer to the text file to parse 
+ * \param input Pointer to the text file to parse
  *
- *            output   Integer representing value, only positive values
+ * \return Integer representing value, only positive values
  *                     are possible. If the end of file is reached a -1
  *                     is returned.
  *
@@ -55,8 +51,8 @@
 int GetInt (FILE *fp) {
     int	c,i;	   /* Character read and integer representation of it */
     int sign = 1;
-    
-    do { 
+
+    do {
         c = getc (fp);                          /* Get next character */
         if ( c == '#' )	                          /* Skip the comment */
             do {
@@ -65,7 +61,7 @@ int GetInt (FILE *fp) {
         if ( c == '-')
             sign = -1;
     } while (!isdigit(c) && !feof(fp));
-    
+
     if (feof(fp)){
         return (EXIT_FAILURE);
     } else {
@@ -75,26 +71,22 @@ int GetInt (FILE *fp) {
             i = (i*10) + (c - '0');
             c = getc (fp);
         }
-        
+
         return (i*sign);
     }
 }
 
-/*
- *
- *  Function: ErrorMsg
- *
- *  Purpose: Prints an error message and then gracefully terminate the
+/*!
+ *  \brief Prints an error message and then gracefully terminate the
  *           program. This is the release version of assert.
  *
- *  Parameters:
- *            input    String with the error message
+ *    \param input String with the error message
  *
- *            output   Prints the error in standard output and exits
+ *    \return Prints the error in standard output and exits
  *
  */
 void ErrorMsg (char * function, char *message){
-    
+
     printf ("\nError in function %s\n", function);
     printf ("\t %s\n", message);
     printf ("The program will terminate.\n\n");
