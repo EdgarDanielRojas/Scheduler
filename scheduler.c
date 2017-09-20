@@ -43,6 +43,19 @@
  * $Id$
  */
 
+ /*!
+  * \author Edgar Daniel Rojas Vazquez
+  * \version 1.0
+  * \date 19/09/2017
+  * \copyright GNU Public License
+  * \mainpage Process scheduler
+  * \section intro Introduction
+  * This code was made for the class TC2008 Operating Systems.
+  * The main focus of this code is to take a file as an input with various processes
+  * on it and apply the 6 process scheduling algorithms seen in class. Afterwards
+  * it shall print out the average wait time for each algorithm applied.
+  */
+
 // TODO Implement Dispatcher Fileio and Process functions
 
 #include <glib.h>                         /* Used for data structure manipulation*/
