@@ -135,6 +135,9 @@ void Preemptive(GList * process_list, int type){
         timeRunning=0;
         //printf("Current process running %d\n",running->process_id);
       }
+      else{
+        running=NULL;
+      }
     }
     result = g_list_find_custom(p,&time,(GCompareFunc)funcArrival);
     if(result!=NULL){
@@ -146,7 +149,12 @@ void Preemptive(GList * process_list, int type){
         runningList = SortProcessList(runningList,CPUBURST);
 
       //PrintProcessList(runningList);
-      if(running != runningList->data){
+      if(running == NULL){
+        running = runningList->data;
+        running->process_lastruntime = time;
+        timeRunning=0;
+      }
+      else if(running != runningList->data){
         int processtime = running->process_runtime;
         running->process_runtime = processtime + timeRunning;
         //printf("Change of process at time %d\n",time);
@@ -159,13 +167,16 @@ void Preemptive(GList * process_list, int type){
 
     time++;
     timeRunning++;
-    running->process_remainingcycles = running->process_remainingcycles -1;
+    if(running != NULL)
+      running->process_remainingcycles = running->process_remainingcycles -1;
   }while(runningList!=NULL);
   //PrintProcessList(p);
   if(type == PRIORITY)
     string = "Preemptive Priority";
   else
     string = "Preemptive SJF";
+
+  //PrintProcessList(p);
   PrintAverageWaitTime(p,string);
   DestroyList(p);
   DestroyList(runningList);
@@ -192,11 +203,15 @@ void RoundRobin(GList * process_list, int quantum){
         timeRunning=0;
         //printf("Current process running %d\n",running->process_id);
       }
+      else{
+        running = NULL;
+      }
     }
     if(timeRunning == quantum){
       running->process_runtime = running->process_runtime + timeRunning;
       runningList = g_list_remove(runningList,running);
       runningList = g_list_insert(runningList,running,-1);
+      //printf("Quantum reached, processed moved to back of the line %d\n",time);
       if(runningList!=NULL){
         running = runningList->data;
         running->process_lastruntime = time;
@@ -208,12 +223,18 @@ void RoundRobin(GList * process_list, int quantum){
     if(result!=NULL){
       //printf("New process introduced at time %d\n",time);
       runningList = addToList(runningList,result);
+      if(running == NULL){
+        running = runningList->data;
+        timeRunning=0;
+        running->process_lastruntime = time;
+      }
       //runningList = g_list_insert(runningList,result->data,-1);
       //PrintProcessList(runningList);
     }
     time++;
     timeRunning++;
-    running->process_remainingcycles = running->process_remainingcycles -1;
+    if(running != NULL)
+      running->process_remainingcycles = running->process_remainingcycles -1;
   }while(runningList!=NULL);
   //PrintProcessList(rr);
   PrintAverageWaitTime(rr,"Round Robin");
