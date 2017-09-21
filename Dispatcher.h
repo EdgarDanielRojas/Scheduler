@@ -5,7 +5,8 @@
  *
  * Author:  Edgar Daniel Rojas Vazquez
  *
- * Purpose: Supports routines for the creation of processes and their scheduling
+ * Purpose: Supports routines for the scheduling of processes and
+ *          calcultion of average waiting time.
  *
  * References:
  *          Sorting algorithms based on those seen in class and
@@ -16,16 +17,14 @@
  *          wrong
  *
  * Revision history:
- *          August 29 7:49 2017 -- File created
+ *          https://github.com/EdgarDanielRojas/Scheduler
  *
  * Error handling:
  *          None
  *
  * Notes:
- *          Not as complicated as it seems, supports the six scheduling algorithms and
- *          the creation of processes for easy handling.
+ *          None
  *
- * $Id$
  */
 
 void FirstCome(GList * process_list);

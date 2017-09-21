@@ -5,7 +5,8 @@
  *
  * Author:  Edgar Daniel Rojas Vazquez
  *
- * Purpose: Supports routines for the creation of processes and their scheduling
+ * Purpose: Supports routines for the scheduling of processes and
+ *          calcultion of average waiting time.
  *
  * References:
  *          Sorting algorithms based on those seen in class and
@@ -16,21 +17,34 @@
  *          wrong
  *
  * Revision history:
- *          August 29 7:49 2017 -- File created
+ *          https://github.com/EdgarDanielRojas/Scheduler
  *
  * Error handling:
  *          None
  *
  * Notes:
- *          Not as complicated as it seems, supports the six scheduling algorithms and
- *          the creation of processes for easy handling.
+ *          None
  *
- * $Id$
  */
-#include <stdio.h>
+#include <stdio.h>       /*Used for the printf function*/
 #include <glib.h>				/*Used so we can use the GList double linked list*/
-#include "Process.h"
+#include "Process.h"    /*Used for the data structures and sorting functions*/
 
+
+/*!
+* \brief Prints the average wait time of a list.
+*
+* \param process_list Head of the process list that will have the average wait time of it´s elements calculated
+* \param tipo Text that contains the type of algorithm that was used on the list.
+*
+* \return output Prints out the type of algorithm used and the average wait time for that algorithm
+*
+* \details The function takes a pointer to the head of the list and using it
+  loops through the whole list, calculating the wait time for each data element (process_p)
+  . Once it calculates the wait time of the element it adds it to the total wait time of the
+  proceses and divides it by the number of processes which was taken using a counter. g_list_length
+  could also be used but it does the same thing in it´s function definition.
+*/
 void PrintAverageWaitTime(GList * process_list, char *tipo){
   GList *l;
   int sum=0,number=0;
@@ -43,6 +57,22 @@ void PrintAverageWaitTime(GList * process_list, char *tipo){
   printf("Average wait time for %s Algorithm : %f\n",tipo,avg);
 }
 
+/*!
+* \brief Adds processes to a running list.
+*
+* \param running_list Head of the running list to which we shall add processes.
+* \param result Head of our results taken from our search function.
+*
+* \return GList* Returns the new head of the running list once elements are added.
+*
+* \details The way the function is used is that it adds elements based on arrival time.
+  When it is called it is know that the result in it´s data field holds a process that
+  has arrived at the time it is called. Once it's data element is added to the running list
+  we use it's arrival time to compare with the rest of the elements in the result list.
+  This is because more than one element can arrive at the same time. In the case that an element
+  does not have a same arrival time we stop searching the list. In the case that an element does
+  have the same arrival time, it is added to the list.
+*/
 GList * addToList(GList * running_list,GList * result){
   running_list = g_list_insert(running_list,result->data,-1);
   Process p = result->data;
@@ -58,6 +88,19 @@ GList * addToList(GList * running_list,GList * result){
   return running_list;
 }
 
+/*!
+* \brief Applies the First Come First Serve algorithm to a process list.
+*
+* \param process_list Head of the process list containing all the processes ordered by arrival time.
+*
+* \return output Calls PrintAverageWaitTime().
+*
+* \details The function creates a copy of the process list arriving using CopyList() so
+  the copy list can be manipulated without fear of changing the original values of the list.
+  Once the copy is made, the algorithm calculates the time the process runs by assigning it the
+  current time and making the time equal to the time plus the process' cpu burst. We can do this
+  since the algorithm is sequential.
+*/
 void FirstCome(GList * process_list){
   GList * fc = CopyList(process_list);
   Process running;
