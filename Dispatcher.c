@@ -43,6 +43,21 @@ void PrintAverageWaitTime(GList * process_list, char *tipo){
   printf("Average wait time for %s Algorithm : %f\n",tipo,avg);
 }
 
+GList * addToList(GList * running_list,GList * result){
+  running_list = g_list_insert(running_list,result->data,-1);
+  Process p = result->data;
+  GList *l;
+  result = result->next;
+  for(l=result;l!=NULL;l=l->next){
+    Process node = l->data;
+    if(node->process_arrival == p->process_arrival)
+      running_list = g_list_insert(running_list,result->data,-1);
+    else
+      break;
+  }
+  return running_list;
+}
+
 void FirstCome(GList * process_list){
   GList * fc = CopyList(process_list);
   Process running;
@@ -74,7 +89,7 @@ void NonPreemptive(GList * process_list, int type){
   do{
     result = g_list_find_custom(np,&time,(GCompareFunc)funcArrival);
     if(result!=NULL){
-      runningList = g_list_insert(runningList,result->data,-1);
+      runningList = addToList(runningList,result);
       if(type == PRIORITY)
         runningList = SortProcessList(runningList,PRIORITY);
       else if(type == CPUBURST)
@@ -124,7 +139,7 @@ void Preemptive(GList * process_list, int type){
     result = g_list_find_custom(p,&time,(GCompareFunc)funcArrival);
     if(result!=NULL){
       //printf("New process introduced at time %d\n",time);
-      runningList = g_list_insert(runningList,result->data,-1);
+      runningList = addToList(runningList,result);
       if(type == PRIORITY)
         runningList = SortProcessList(runningList,PRIORITY);
       else if(type == CPUBURST)
@@ -192,7 +207,8 @@ void RoundRobin(GList * process_list, int quantum){
     result = g_list_find_custom(rr,&time,(GCompareFunc)funcArrival);
     if(result!=NULL){
       //printf("New process introduced at time %d\n",time);
-      runningList = g_list_insert(runningList,result->data,-1);
+      runningList = addToList(runningList,result);
+      //runningList = g_list_insert(runningList,result->data,-1);
       //PrintProcessList(runningList);
     }
     time++;
