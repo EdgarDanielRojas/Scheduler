@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['firstcome',['FirstCome',['../Dispatcher_8c.html#a964b2403608c07df2515952097f05abc',1,'FirstCome(GList *process_list):&#160;Dispatcher.c'],['../Dispatcher_8h.html#a964b2403608c07df2515952097f05abc',1,'FirstCome(GList *process_list):&#160;Dispatcher.c']]],
-  ['freenode',['freeNode',['../Process_8c.html#aec63546debebf47fb25998d3372714c4',1,'freeNode(gpointer node):&#160;Process.c'],['../Process_8h.html#aec63546debebf47fb25998d3372714c4',1,'freeNode(gpointer node):&#160;Process.c']]],
-  ['funcarrival',['funcArrival',['../Dispatcher_8c.html#ac55123651fc59e434e7c7dc2ebcc2873',1,'Dispatcher.c']]]
+  ['errormsg',['ErrorMsg',['../FileIO_8c.html#a424cc7614e30986ee33b2867e01bb5e2',1,'ErrorMsg(char *function, char *message):&#160;FileIO.c'],['../FileIO_8h.html#a424cc7614e30986ee33b2867e01bb5e2',1,'ErrorMsg(char *function, char *message):&#160;FileIO.c']]]
 ];

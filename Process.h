@@ -43,7 +43,7 @@
    , PRIORITY //!< Constant for Priority
    , CPUBURST//!< Constant for Cpu burst
    };
-
+// Consult documentation or Process.c for more information.
 GList * CreateProcess(GList * process_list,int id, int arrival,int burst,int priority,int algo);
 
 GList * SortProcessList(GList * process_list,int sort);

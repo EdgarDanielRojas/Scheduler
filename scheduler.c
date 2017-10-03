@@ -56,6 +56,14 @@
   * it shall print out the average wait time for each algorithm applied. The only
   * code reutilized was that which was provided by the Profesor Abelardo Lopez Lagunas.
   * The files reutilized are scheduler.c, FileIO.h and FileIO.c .
+  * \section info Documentation
+  * The documentation for this code is accessible from these html file. In the case
+  * that the algorithm isn't described thoroughly enough in this documentation, the source
+  * code contains more comments with respect to how the algorithms where implemented.
+  * \section comp Compilation
+  * In order to compile this code it is necessary to have the GLib libraries installed on
+  * your machine, once that is done, you need to run the following command to compile all the
+  * files using the GLib library.\n gcc scheduler.c Process.c FileIO.c Dispatcher.c `pkg-config --cflags --libs glib-2.0` -Wall -o scheduler
   */
 
 

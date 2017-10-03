@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nonpreemptive',['NonPreemptive',['../Dispatcher_8c.html#a599e59d14d7ee7842b19c81839aeb238',1,'NonPreemptive(GList *process_list, int type):&#160;Dispatcher.c'],['../Dispatcher_8h.html#a599e59d14d7ee7842b19c81839aeb238',1,'NonPreemptive(GList *process_list, int type):&#160;Dispatcher.c']]]
+  ['main',['main',['../scheduler_8c.html#ac0f2228420376f4db7e1274f2b41667c',1,'scheduler.c']]]
 ];

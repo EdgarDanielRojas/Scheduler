@@ -189,6 +189,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Exact copy of the list passes as parameter</dd></dl>
 <p>This function returns the head of a new process list completely identical to the input process list using the function g_list_copy_deep. This function takes as parameters the head of the list to be copied, a copy function and user data. The copy function is to be applied to every data pointer in the GList list and is called <a class="el" href="Process_8c.html#a5a7756a071f91c234e44204f3f07d1ee" title="Copies a process. ">copyFunction()</a>. </p>
 
 </div>
@@ -251,10 +252,11 @@ Functions</h2></td></tr>
     <tr><td class="paramname">arrival</td><td>The process arrival time </td></tr>
     <tr><td class="paramname">burst</td><td>The process cpu burst </td></tr>
     <tr><td class="paramname">priority</td><td>The process priority </td></tr>
-    <tr><td class="paramname">algo</td><td>Undefined input</td></tr>
+    <tr><td class="paramname">algo</td><td>Undefined input </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>GList pointer to the new head of the list</dd></dl>
 <p>For this function to work the pointer to the process list must be of type GList as that is what we are using to organize our processes. The function takes in the information necesary for the creation of a process using the Process data structure. After allocating the necesary memory space and filling in the information we use the g_list_insert function included in the glib library to add it to the end of the list and return the pointer to the start of the new start of the list. </p>
 
 </div>
@@ -336,6 +338,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>output Prints the processes with their information</dd></dl>
 <p>This function receives the process list head and using another GList pointer it goes one by one and extracts the data (a process) from the pointer and prints out the process information. This inludes process_id , process_arrival , process_burst, process_priority, process_runtime, process_lastruntime and process_remainingcycles. It stops once it gets to the NULL GList node. </p>
 
 </div>
@@ -374,6 +377,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the new head of the GList that was sorted</dd></dl>
 <p>This function receives the process list to sort and the type of sort to apply based on the enum sort_type. It returns the new head of the list using the function g_list_sort which takes in the current head of the list and a comparison function which can be any of the following depending on the sort type we want to use: <a class="el" href="Process_8c.html#a2ef5e3a26c3701399d2440180f4d957b" title="Compares processes by ID. ">sortFunctionID()</a> , <a class="el" href="Process_8c.html#a6f3f64bb7c8ab2b1f017b2607b999155" title="Compares processes by arrival time. ">sortFunctionArrival()</a> , <a class="el" href="Process_8c.html#a88b9cf99198aa96eeef09a485c7e98c0" title="Compares processes by priority. ">sortFunctionPriority()</a> or <a class="el" href="Process_8c.html#a5570e4134904d2733e91367025124a6f" title="Compares processes by cpu burst. ">sortFunctionCpuBurst()</a>. </p>
 
 </div>

@@ -79,12 +79,16 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a964b2403608c07df2515952097f05abc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dispatcher_8h.html#a964b2403608c07df2515952097f05abc">FirstCome</a> (GList *process_list)</td></tr>
+<tr class="memdesc:a964b2403608c07df2515952097f05abc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the First Come First Serve algorithm to a process list.  <a href="#a964b2403608c07df2515952097f05abc">More...</a><br /></td></tr>
 <tr class="separator:a964b2403608c07df2515952097f05abc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a599e59d14d7ee7842b19c81839aeb238"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dispatcher_8h.html#a599e59d14d7ee7842b19c81839aeb238">NonPreemptive</a> (GList *process_list, int type)</td></tr>
+<tr class="memdesc:a599e59d14d7ee7842b19c81839aeb238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a NonPreemptive algorithm to a process list.  <a href="#a599e59d14d7ee7842b19c81839aeb238">More...</a><br /></td></tr>
 <tr class="separator:a599e59d14d7ee7842b19c81839aeb238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd155be10d9300d3ab6c03db06086aa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dispatcher_8h.html#afd155be10d9300d3ab6c03db06086aa8">Preemptive</a> (GList *process_list, int type)</td></tr>
+<tr class="memdesc:afd155be10d9300d3ab6c03db06086aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies a Preemptive algorithm to a process list.  <a href="#afd155be10d9300d3ab6c03db06086aa8">More...</a><br /></td></tr>
 <tr class="separator:afd155be10d9300d3ab6c03db06086aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af69540eab87c7aec0b7471e42a4b6e00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Dispatcher_8h.html#af69540eab87c7aec0b7471e42a4b6e00">RoundRobin</a> (GList *process_list, int quantum)</td></tr>
+<tr class="memdesc:af69540eab87c7aec0b7471e42a4b6e00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the Round Robin algorithm to a process list.  <a href="#af69540eab87c7aec0b7471e42a4b6e00">More...</a><br /></td></tr>
 <tr class="separator:af69540eab87c7aec0b7471e42a4b6e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -103,6 +107,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Applies the First Come First Serve algorithm to a process list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">process_list</td><td>Head of the process list containing all the processes ordered by arrival time.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>output Calls <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>.</dd></dl>
+<p>The function creates a copy of the process list arriving using <a class="el" href="Process_8c.html#af87ca937324b42cc09757825d6df7f67" title="Copies a process list. ">CopyList()</a> so the copy list can be manipulated without fear of changing the original values of the list. Once the copy is made, the algorithm calculates the time the process runs by assigning it the current time and making the time equal to the time plus the process' cpu burst. We can do this since the algorithm is sequential. </p>
 
 </div>
 </div>
@@ -132,6 +146,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Applies a NonPreemptive algorithm to a process list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">process_list</td><td>Head of the process list containing all the processes ordered by arrival time. </td></tr>
+    <tr><td class="paramname">type</td><td>enum value of sort_type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>output Calls <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>.</dd></dl>
+<p>The function creates a copy of the process list arriving using <a class="el" href="Process_8c.html#af87ca937324b42cc09757825d6df7f67" title="Copies a process list. ">CopyList()</a> so the copy list can be manipulated without fear of changing the original values of the list. Once the copy is made, the algorithm applied is basically the same for the two type of NonPreemptive algorithms (SJF and Priority). First we create a new list called runningList which will house the current processes in queue. Next the algorithm enters a loop where it will exit once the runningList is NULL. Inside the algorithm there are basically two conditions we have to check, if a process arrives at our current time and if our current running process has finished. If a process arrive, the queue is sorted based on the NonPreemptive algorithm chosen. If a process finishes running, then we remove it from the runningList and run the next process. We increment the time with each iteration and once it finishes we print the averag wait time using <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>. </p>
+
 </div>
 </div>
 <a id="afd155be10d9300d3ab6c03db06086aa8"></a>
@@ -160,6 +185,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Applies a Preemptive algorithm to a process list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">process_list</td><td>Head of the process list containing all the processes ordered by arrival time. </td></tr>
+    <tr><td class="paramname">type</td><td>enum value of sort_type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>output Calls <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>.</dd></dl>
+<p>The function creates a copy of the process list arriving using <a class="el" href="Process_8c.html#af87ca937324b42cc09757825d6df7f67" title="Copies a process list. ">CopyList()</a> so the copy list can be manipulated without fear of changing the original values of the list. Once the copy is made, the algorithm applied is basically the same for the two type of Preemptive algorithms (SJF and Priority). First we create a new list called runningList which will house the current processes in queue. Next the algorithm enters a loop where it will exit once the runningList is NULL. Inside the algorithm there are basically two conditions we have to check, if a process arrives at our current time and if our current running process has finished. The first to be checked is if the process has finished execution, if it has, we remove it from our runningList and execute the next process in queue. If a process arrives at our current time we add it to the runningList and sort said list. In the case that the process running is no longer the process at the head of the queue, we switch out the process with the process at the head of the queue. We increment the time with each iteration and once it finishes we print the average wait time using <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>. </p>
+
 </div>
 </div>
 <a id="af69540eab87c7aec0b7471e42a4b6e00"></a>
@@ -187,6 +223,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Applies the Round Robin algorithm to a process list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">process_list</td><td>Head of the process list containing all the processes ordered by arrival time. </td></tr>
+    <tr><td class="paramname">quantum</td><td>The size of the quantum used in the algorithm</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>output Calls <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>.</dd></dl>
+<p>The function creates a copy of the process list arriving using <a class="el" href="Process_8c.html#af87ca937324b42cc09757825d6df7f67" title="Copies a process list. ">CopyList()</a> so the copy list can be manipulated without fear of changing the original values of the list. First we create a new list called runningList which will house the current processes in queue. Next the algorithm enters a loop where it will exit once the runningList is NULL. Inside the algorithm there are basically three conditions we must check. The first one is if the current running process has finished running. If that is the case the process is removed from the queue and the Next process in queue is executed. The second one is if the current running process has run for the determined quantum. If it has then it is put to the end of the queue so it may execute later. Lastly we search the process list to find if a process arrives at the current time. If we do find a process then we put it at the end of the queue so it may execute later. All this is repeated until all processes run and the runningList is left at NULL. We increment the time with each iteration and once it finishes we print the average wait time using <a class="el" href="Dispatcher_8c.html#af9cdd8647ec1f7c1d199317dc6e51f9c" title="Prints the average wait time of a list. ">PrintAverageWaitTime()</a>. </p>
 
 </div>
 </div>

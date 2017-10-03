@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errormsg',['ErrorMsg',['../FileIO_8c.html#a424cc7614e30986ee33b2867e01bb5e2',1,'ErrorMsg(char *function, char *message):&#160;FileIO.c'],['../FileIO_8h.html#a424cc7614e30986ee33b2867e01bb5e2',1,'ErrorMsg(char *function, char *message):&#160;FileIO.c']]]
+  ['destroylist',['DestroyList',['../Process_8c.html#a5d9c86d6ef6c16d26cd8248cd0b2eb12',1,'DestroyList(GList *process_list):&#160;Process.c'],['../Process_8h.html#a5d9c86d6ef6c16d26cd8248cd0b2eb12',1,'DestroyList(GList *process_list):&#160;Process.c']]]
 ];

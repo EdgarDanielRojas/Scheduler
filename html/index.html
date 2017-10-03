@@ -70,6 +70,13 @@ $(function() {
 <h1><a class="anchor" id="intro"></a>
 Introduction</h1>
 <p>This code was made for the class TC2008 Operating Systems. The main focus of this code is to take a file as an input with various processes on it and apply the 6 process scheduling algorithms seen in class. Afterwards it shall print out the average wait time for each algorithm applied. The only code reutilized was that which was provided by the Profesor Abelardo Lopez Lagunas. The files reutilized are <a class="el" href="scheduler_8c.html">scheduler.c</a>, <a class="el" href="FileIO_8h.html">FileIO.h</a> and <a class="el" href="FileIO_8c.html">FileIO.c</a> . </p>
+<h1><a class="anchor" id="info"></a>
+Documentation</h1>
+<p>The documentation for this code is accessible from these html file. In the case that the algorithm isn't described thoroughly enough in this documentation, the source code contains more comments with respect to how the algorithms where implemented. </p>
+<h1><a class="anchor" id="comp"></a>
+Compilation</h1>
+<p>In order to compile this code it is necessary to have the GLib libraries installed on your machine, once that is done, you need to run the following command to compile all the files using the GLib library.<br />
+ gcc <a class="el" href="scheduler_8c.html">scheduler.c</a> <a class="el" href="Process_8c.html">Process.c</a> <a class="el" href="FileIO_8c.html">FileIO.c</a> <a class="el" href="Dispatcher_8c.html">Dispatcher.c</a> <code>pkg-config --cflags --libs glib-2.0</code> -Wall -o scheduler </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
